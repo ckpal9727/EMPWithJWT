@@ -1,0 +1,32 @@
+﻿@model IEnumerable<EmployeeManagementWithJWT.Models.Employee>
+
+@{
+    ViewData["Title"] = "Employee List";
+}
+
+<div class="container mt-4">
+    <h1>@ViewData["Title"]</h1>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Department</th>
+                <th scope="col">Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var employee in Model)
+            {
+                <tr>
+                    <td>@employee.Id</td>
+                    <td>@employee.Name</td>
+                    <td>@employee.Email</td>
+                    <td>@employee.Department.DepartmentName</td> <!-- Display Department Name -->
+                    <td>@employee.Salary.ToString("C")</td> <!-- Format Salary as currency -->
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
